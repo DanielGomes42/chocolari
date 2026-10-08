@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="pt-BR">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CHOCOLARI • Chocolates artesanais</title>
+<meta name="description" content="Conheça os doces e chocolates artesanais da CHOCOLARI.">
+<style>
+:root{color-scheme:dark;--gold:#e7ba69;--ink:#21140f}*{box-sizing:border-box}body{margin:0;background:var(--ink);color:#fff4e7;font:17px/1.6 Arial,sans-serif}a{color:inherit}header,main,footer{max-width:1200px;margin:auto;padding:24px}header{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #ffffff26}.brand{font:26px Georgia,serif;letter-spacing:5px}header a{text-decoration:none;font-size:14px;color:var(--gold)}.intro{padding:64px 0 36px;max-width:800px}.eyebrow{color:var(--gold);letter-spacing:3px;text-transform:uppercase;font-size:14px}h1{font:clamp(42px,7vw,82px)/1.08 Georgia,serif;margin:16px 0 24px}h2{font:32px Georgia,serif}p{color:#d7c4b5}.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px 20px}figure{margin:0}figure button{display:block;background:none;border:0;padding:0;width:100%;cursor:zoom-in}figure img{width:100%;aspect-ratio:1;object-fit:cover;display:block;border-radius:4px}figcaption{padding:12px 0;color:var(--gold)}footer{margin-top:50px;border-top:1px solid #ffffff26;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-size:14px}dialog{border:1px solid var(--gold);padding:16px;background:var(--ink);color:white;max-width:95vw}dialog::backdrop{background:#000d}dialog img{display:block;max-width:85vw;max-height:75vh;object-fit:contain}dialog button{float:right;background:var(--gold);border:0;padding:12px 18px;font-size:16px;cursor:pointer;margin-bottom:12px}button:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:5px}@media(max-width:700px){.gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:20px 12px}.intro{padding-top:40px}header,main,footer{padding:20px}.brand{font-size:21px;letter-spacing:3px}}@media(max-width:390px){.gallery{grid-template-columns:1fr}}
+</style>
+<header><span class="brand">CHOCOLARI</span><a href="#colecao">Nossos doces</a></header>
+<main><section class="intro"><div class="eyebrow">Chocolates artesanais</div><h1>Um doce jeito<br>de criar momentos.</h1><p>Cookies recheados, brigadeiros, brownies e bolos. Conheça as criações da CHOCOLARI.</p></section><section id="colecao"><h2>Nossos doces</h2><div class="gallery" id="gallery"></div></section></main>
+<footer><span>CHOCOLARI • Chocolates artesanais</span><a href="https://www.instagram.com/chocolari25/" target="_blank" rel="noopener">Instagram da CHOCOLARI</a></footer>
+<dialog id="viewer"><button id="close" aria-label="Fechar foto ampliada">Fechar</button><img id="large" alt=""></dialog>
+<script>
+const names=['Bolo de morango','Beijinhos em arranjo de flores','Cookies artesanais','Brigadeiros para presentear','Cookies recheados','Sanduíche de brownie','Morango com chocolate','Brownies de chocolate','Pão de mel com recheio claro','Pão de mel com doce de leite','Docinho com flor de chocolate','Docinho com flor dourada','Doce com cobertura de chocolate','Docinhos com nozes','Brownie com morangos','Doce recheado com cobertura branca'];
+names.forEach((name,i)=>{const figure=document.createElement('figure'),button=document.createElement('button'),img=document.createElement('img'),caption=document.createElement('figcaption');img.src=`assets/doce-${i}.jpg`;img.alt=name;img.loading=i>1?'lazy':'eager';button.setAttribute('aria-label',`Ampliar foto: ${name}`);button.append(img);caption.textContent=name;figure.append(button,caption);gallery.append(figure);button.onclick=()=>{large.src=img.src;large.alt=name;viewer.showModal()}});
+document.getElementById('close').onclick=()=>viewer.close();viewer.onclick=e=>{if(e.target===viewer)viewer.close()};
+</script>
+</html>
+
+
